@@ -1,0 +1,71 @@
+<body style="padding-top: 80px">
+  <div class="container-lg">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <h2>Products <b>Details</b></h2>
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-info add-new">
+                <a href="/add"> <i class="fa fa-plus"></i> Add New </a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Thumbnail</th>
+              <th>Description</th>
+              <th>Material</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>sizes</th>
+              <th>Type (Number of category)</th>
+              <th>Delete</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products">
+              <td>{{ item.name }}</td>
+              <td>
+                <img
+                  src="{{ item.thumbnail }}"
+                  alt=""
+                  style="max-width: 120px"
+                />
+              </td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.material }}</td>
+              <td>{{ item.price }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.sizes }}</td>
+              <td>{{ item.id_type }}</td>
+              <td>
+                <div>
+                  <a
+                    class="text-muted"
+                    (click)="deleteProduct(item.id)"
+                    href="/admin"
+                    ><i class="fas fa-times" style="color: red"></i
+                  ></a>
+                </div>
+              </td>
+              <td>
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-info add-new">
+                    <i></i> Edit
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
